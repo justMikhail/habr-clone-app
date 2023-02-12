@@ -10,7 +10,7 @@ interface NavbarProps {
 export const Navbar = ({className}: NavbarProps) => {
     return (
         <div className={classNames(styles.Navbar, className)}>
-            <ThemeSwitcher/>
+            <ThemeSwitcher />
 
             <div className={styles.linksList}>
                 <SharedLink to={'/'} theme={SharedLinkTheme.SECONDARY}>
