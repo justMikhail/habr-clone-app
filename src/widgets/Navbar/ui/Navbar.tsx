@@ -1,6 +1,7 @@
-import {classNames} from "shared/lib/classNames/classNames";
+import classNames from "classnames";
 import styles from './Navbar.module.scss'
 import {SharedLink, SharedLinkTheme} from "shared/ui/SharedLink/SharedLink";
+import {ThemeSwitcher} from "widgets/ThemeSwitcher";
 
 interface NavbarProps {
     className?: string;
@@ -8,7 +9,9 @@ interface NavbarProps {
 
 export const Navbar = ({className}: NavbarProps) => {
     return (
-        <div className={classNames(styles.Navbar, {}, [className])}>
+        <div className={classNames(styles.Navbar, className)}>
+            <ThemeSwitcher/>
+
             <div className={styles.linksList}>
                 <SharedLink to={'/'} theme={SharedLinkTheme.SECONDARY}>
                     Home

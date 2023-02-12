@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {Link, LinkProps} from "react-router-dom";
-import {classNames} from "shared/lib/classNames/classNames";
+import classNames from "classnames";
 import styles from './SharedLink.module.scss'
 
 export enum SharedLinkTheme {
@@ -25,7 +25,7 @@ export const SharedLink: FC<SharedLinkProps> = (props) => {
     return (
         <Link
             to={to}
-            className={classNames(styles.SharedLink, {}, [className, styles[theme]])}
+            className={classNames(styles.SharedLink, className, styles[theme])}
             {...otherProps}
         >
             {children}
