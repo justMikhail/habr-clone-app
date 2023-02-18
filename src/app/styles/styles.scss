@@ -5,10 +5,8 @@
 
 .app {
   font: var(--font-m);
-
   background-color: var(--bg-color);
   color: var(--on-bg-color);
-
   min-height: 100vh;
 }
 
@@ -20,5 +18,3 @@
   flex-grow: 1;
   padding: 32px;
 }
-
-
