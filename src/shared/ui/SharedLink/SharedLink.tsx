@@ -1,7 +1,7 @@
-import {FC} from "react";
-import {Link, LinkProps} from "react-router-dom";
-import classNames from "classnames";
-import styles from './SharedLink.module.scss'
+import { FC } from 'react';
+import { Link, LinkProps } from 'react-router-dom';
+import classNames from 'classnames';
+import styles from './SharedLink.module.scss';
 
 export enum SharedLinkTheme {
     PRIMARY= 'primary',
@@ -14,21 +14,21 @@ interface SharedLinkProps extends LinkProps {
 }
 
 export const SharedLink: FC<SharedLinkProps> = (props) => {
-    const {
-        to,
-        className,
-        children,
-        theme = SharedLinkTheme.PRIMARY,
-        ...otherProps
-    } = props;
+  const {
+    to,
+    className,
+    children,
+    theme = SharedLinkTheme.PRIMARY,
+    ...otherProps
+  } = props;
 
-    return (
-        <Link
-            to={to}
-            className={classNames(styles.SharedLink, className, styles[theme])}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
+  return (
+    <Link
+      to={to}
+      className={classNames(styles.SharedLink, className, styles[theme])}
+      {...otherProps}
+    >
+      {children}
+    </Link>
+  );
 };
