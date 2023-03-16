@@ -2,6 +2,7 @@ import classNames from 'classnames';
 import { FC, useState } from 'react';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
 import { LangSwitcher } from 'widgets/LangSwitcher/ui/LangSwitcher';
+import { SharedButton } from '../../../../shared/ui/SharedButton/SharedButton';
 import styles from './Sidebar.module.scss';
 
 interface SidebarProps {
@@ -16,13 +17,16 @@ export const Sidebar: FC<SidebarProps> = ({ className }) => {
   };
 
   return (
-    <div className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, className)}>
-      <button
-        type="button"
+    <div
+      data-testid="sidebar"
+      className={classNames(styles.Sidebar, { [styles.collapsed]: collapsed }, className)}
+    >
+      <SharedButton
+        data-testid="sidebar-toggle"
         onClick={handleToggle}
       >
         toggle
-      </button>
+      </SharedButton>
       <div className={styles.tools}>
         <LangSwitcher />
         <ThemeSwitcher />
