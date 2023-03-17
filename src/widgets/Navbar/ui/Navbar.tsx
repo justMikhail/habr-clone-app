@@ -9,11 +9,17 @@ interface NavbarProps {
 export const Navbar = ({ className }: NavbarProps) => (
   <div className={classNames(styles.Navbar, className)}>
     <div className={styles.linksList}>
-      <SharedLink to="/" theme={SharedLinkTheme.SECONDARY}>
+      <SharedLink
+        to="/"
+        theme={SharedLinkTheme.SECONDARY}
+      >
         Home
       </SharedLink>
 
-      <SharedLink to="/about" theme={SharedLinkTheme.SECONDARY}>
+      <SharedLink
+        to="/about"
+        theme={SharedLinkTheme.SECONDARY}
+      >
         About
       </SharedLink>
     </div>
