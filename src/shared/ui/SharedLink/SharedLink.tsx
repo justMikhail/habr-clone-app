@@ -6,6 +6,7 @@ import styles from './SharedLink.module.scss';
 export enum SharedLinkTheme {
     PRIMARY= 'primary',
     SECONDARY = 'secondary',
+    ERROR = 'error',
 }
 
 interface SharedLinkProps extends LinkProps {
