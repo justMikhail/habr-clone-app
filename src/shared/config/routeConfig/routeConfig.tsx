@@ -4,20 +4,20 @@ import { AboutPage } from 'pages/AboutPage';
 import { NotFoundPage } from 'pages/NotFaoundPage';
 
 export enum AppRoutes {
-    MAIN = 'main',
+    HOME = 'home',
     ABOUT = 'about',
     NOT_FOUND = 'not_found',
 }
 
 export const RoutesPath: Record<AppRoutes, string> = {
-  [AppRoutes.MAIN]: '/',
+  [AppRoutes.HOME]: '/',
   [AppRoutes.ABOUT]: '/about',
   [AppRoutes.NOT_FOUND]: '*',
 };
 
 export const routeConfig: Record<AppRoutes, RouteProps> = {
-  [AppRoutes.MAIN]: {
-    path: RoutesPath.main,
+  [AppRoutes.HOME]: {
+    path: RoutesPath.home,
     element: <HomePage />,
   },
   [AppRoutes.ABOUT]: {

@@ -8,11 +8,6 @@
   transition: width 0.3s;
 }
 
-.collapsed {
-  width: var(--sedebar-width-collapsed);
-  transition: width 0.3s;
-}
-
 .tools {
   position: absolute;
   bottom: 20px;
@@ -21,4 +16,52 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 16px;
+}
+
+.toggler {
+  position: absolute;
+  right: -32px;
+  bottom: 32px;
+}
+
+.list {
+  padding: 16px 24px;
+  display: flex;
+  flex-direction: column;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.icon {
+  fill: var(--primary-color-500);
+}
+
+.text {
+  // empty
+}
+
+.collapsed {
+  width: var(--sedebar-width-collapsed);
+  transition: width 0.3s;
+
+  .tools {
+    flex-direction: column;
+  }
+
+  .item {
+    justify-content: center;
+    gap: 0;
+  }
+
+  .text {
+    opacity: 0;
+    transition: 0.2s opacity;
+    width: 0;
+  }
 }

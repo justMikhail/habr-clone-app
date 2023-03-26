@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
 import classNames from 'classnames';
-import { SharedButton, ThemeButton } from 'shared/ui/SharedButton/SharedButton';
+import { SharedButton, SharedButtonTheme } from 'shared/ui/SharedButton/SharedButton';
 import styles from './LangSwitcher.module.scss';
 
 interface LangSwitcherProps {
@@ -17,7 +17,7 @@ export const LangSwitcher = ({ className }: LangSwitcherProps) => {
   return (
     <SharedButton
       className={classNames(styles.LangSwitcher, className)}
-      theme={ThemeButton.CLEAR}
+      theme={SharedButtonTheme.CLEAR}
       onClick={toggle}
     >
       {t('Язык')}

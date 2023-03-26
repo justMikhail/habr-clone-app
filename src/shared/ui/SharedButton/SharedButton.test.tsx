@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { SharedButton, ThemeButton } from 'shared/ui/SharedButton/SharedButton';
+import { SharedButton, SharedButtonTheme } from 'shared/ui/SharedButton/SharedButton';
 
 describe('SharedButton', () => {
   test('Test render', () => {
@@ -8,7 +8,7 @@ describe('SharedButton', () => {
   });
 
   test('Test clear theme', () => {
-    render(<SharedButton theme={ThemeButton.CLEAR}>TEST</SharedButton>);
+    render(<SharedButton theme={SharedButtonTheme.CLEAR}>TEST</SharedButton>);
     expect(screen.getByText('TEST')).toHaveClass('clear');
     screen.debug();
   });

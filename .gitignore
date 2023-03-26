@@ -8,6 +8,8 @@
 # testing
 /coverage
 /storybook-static
+.loki/report.html
+.loki/report.json
 
 # production
 /build

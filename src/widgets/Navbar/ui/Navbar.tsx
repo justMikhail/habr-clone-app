@@ -13,19 +13,7 @@ export const Navbar = ({ className }: NavbarProps) => {
   return (
     <div className={classNames(styles.Navbar, className)}>
       <div className={styles.linksList}>
-        <SharedLink
-          to="/"
-          theme={SharedLinkTheme.SECONDARY}
-        >
-          {t('Домашняя')}
-        </SharedLink>
-
-        <SharedLink
-          to="/about"
-          theme={SharedLinkTheme.SECONDARY}
-        >
-          {t('О сайте')}
-        </SharedLink>
+        ...
       </div>
     </div>
   );

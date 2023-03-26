@@ -1,6 +1,7 @@
 .SharedButton {
   cursor: pointer;
   color: var(--on-surface-color);
+  padding: 10px 15px;
 }
 
 .clear {
@@ -11,8 +12,56 @@
 }
 
 .outline {
-  padding: 10px 15px;
-  border: 1px solid var(--primary-color-500);
-  color: var(--primary-color-500);
+  border: 1px solid var(--on-surface-color);
+  color: var(--on-surface-color);
   background: none;
+}
+
+.background {
+  border: none;
+  background-color: var(--surface-color);
+  color: var(--primary-color-500);
+}
+
+.backgroundInverted {
+  border: none;
+  background-color: var(--surface-color);
+  color: var(--primary-color-500);
+}
+
+.square {
+  width: var(--line-heigth-m);
+  height: var(--line-heigth-m);
+  font: var(--font-m);
+  padding: 0;
+}
+
+.square.size_m {
+  width: var(--line-heigth-m);
+  height: var(--line-heigth-m);
+  font: var(--font-m);
+}
+
+.square.size_l {
+  width: var(--line-heigth-l);
+  height: var(--line-heigth-l);
+  font: var(--font-l);
+}
+
+.square.size_xl {
+  width: var(--line-heigth-xl);
+  height: var(--line-heigth-xl);
+  font: var(--font-xl);
+}
+
+.size_m {
+  font: var(--font-m);
+}
+
+.size_l {
+  font: var(--font-l);
+}
+
+.size_xl {
+  font: var(--font-xl);
 }
