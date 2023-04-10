@@ -6,6 +6,7 @@ import React, {
   useCallback,
 } from 'react';
 import classNames from 'classnames';
+import { useTheme } from 'app/providers/ThemeProvider';
 import { SharedPortal } from 'shared/ui/SharedPortal/SharedPortal';
 import styles from './SharedModal.module.scss';
 
@@ -28,6 +29,7 @@ export const SharedModal = (props: SharedModalProps) => {
 
   const [isClosing, setIsClosing] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
+  const { theme } = useTheme();
 
   const handleClose = useCallback(() => {
     if (onClose) {
@@ -68,7 +70,7 @@ export const SharedModal = (props: SharedModalProps) => {
 
   return (
     <SharedPortal>
-      <div className={classNames(styles.SharedModal, modClassNames)}>
+      <div className={classNames(styles.SharedModal, modClassNames, theme)}>
         <div
           className={classNames(styles.overlay)}
           onClick={handleClose}
