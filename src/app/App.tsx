@@ -12,7 +12,7 @@ const App = () => {
   const [isOpened, setIsOpened] = useState(false);
 
   return (
-    <div className={classNames('app', theme)}>
+    <div className={classNames('app')}>
       <Suspense fallback="">
         <Navbar />
         <button onClick={() => setIsOpened(true)}>

@@ -70,7 +70,7 @@ export const SharedModal = (props: SharedModalProps) => {
 
   return (
     <SharedPortal>
-      <div className={classNames(styles.SharedModal, modClassNames, theme)}>
+      <div className={classNames(styles.SharedModal, modClassNames)}>
         <div
           className={classNames(styles.overlay)}
           onClick={handleClose}
