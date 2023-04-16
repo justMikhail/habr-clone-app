@@ -11,10 +11,11 @@ import { SharedPortal } from 'shared/ui/SharedPortal/SharedPortal';
 import styles from './SharedModal.module.scss';
 
 interface SharedModalProps {
-    className?: string;
-    children?: ReactNode;
-    isOpened?: boolean;
-    onClose?: () => void;
+  className?: string;
+  children?: ReactNode;
+  isOpened?: boolean;
+  onClose?: () => void;
+  lazy?: boolean;
 }
 
 const ANIMATION_DELAY = 300;
@@ -25,9 +26,11 @@ export const SharedModal = (props: SharedModalProps) => {
     children,
     isOpened,
     onClose,
+    lazy,
   } = props;
 
   const [isClosing, setIsClosing] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
   const timeRef = useRef<ReturnType<typeof setTimeout>>();
   const { theme } = useTheme();
 
@@ -54,6 +57,12 @@ export const SharedModal = (props: SharedModalProps) => {
 
   useEffect(() => {
     if (isOpened) {
+      setIsMounted(true);
+    }
+  }, [isOpened]);
+
+  useEffect(() => {
+    if (isOpened) {
       window.addEventListener('keydown', onKeyDown);
     }
 
@@ -67,6 +76,10 @@ export const SharedModal = (props: SharedModalProps) => {
     [styles.opened]: isOpened,
     [styles.isClosing]: isClosing,
   });
+
+  if (lazy && !isMounted) {
+    return null;
+  }
 
   return (
     <SharedPortal>
