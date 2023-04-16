@@ -4,7 +4,9 @@ import { LoginForm } from './LoginForm';
 
 export default {
   title: 'features/LoginForm',
+
   component: LoginForm,
+
   argTypes: {
     backgroundColor: { control: 'color' },
   },
