@@ -1,26 +1,25 @@
-import { Suspense, useState } from 'react';
+import { Suspense, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import classNames from 'classnames';
+import { userActions } from 'entities/User';
 import { useTheme } from 'app/providers/ThemeProvider';
+
 import { AppRouter } from 'app/providers/router';
 import { Navbar } from 'widgets/Navbar';
 import { Sidebar } from 'widgets/Sidebar/ui/Sidebar/Sidebar';
-import { SharedModal } from 'shared/ui/SharedModal/SharedModal';
 
 const App = () => {
   const { theme } = useTheme();
+  const dispatch = useDispatch();
 
-  const [isOpened, setIsOpened] = useState(false);
+  useEffect(() => {
+    dispatch(userActions.initAuthData());
+  }, [dispatch]);
 
   return (
     <div className={classNames('app')}>
       <Suspense fallback="">
         <Navbar />
-        <button onClick={() => setIsOpened(true)}>
-          toggle
-        </button>
-        <SharedModal isOpened={isOpened} onClose={() => setIsOpened(false)}>
-          asfasdasdasdasdas
-        </SharedModal>
         <div className="page">
           <Sidebar />
           <AppRouter />

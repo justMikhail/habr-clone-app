@@ -32,6 +32,7 @@ export const SharedButton: FC<SharedButtonProps> = (props) => {
     theme,
     shape,
     size,
+    disabled,
     children,
     ...otherProps
   } = props;
@@ -44,6 +45,7 @@ export const SharedButton: FC<SharedButtonProps> = (props) => {
         styles[theme],
         styles[shape],
         styles[size],
+        { [styles.disabled]: disabled },
       )}
       type="button"
       {...otherProps}

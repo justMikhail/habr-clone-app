@@ -1,8 +1,10 @@
+import { useCallback, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import classNames from 'classnames';
 import { useTranslation } from 'react-i18next';
+import { LoginModal } from 'features/AuthByUserName';
+import { getUserAuthData, userActions } from 'entities/User';
 import { SharedButton, SharedButtonTheme } from 'shared/ui/SharedButton/SharedButton';
-import { useState, useCallback } from 'react';
-import { LoginModal } from 'features/AuthByUsername';
 import styles from './Navbar.module.scss';
 
 interface NavbarProps {
@@ -11,15 +13,37 @@ interface NavbarProps {
 
 export const Navbar = ({ className }: NavbarProps) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
+
   const [isAuthModal, setIsAuthModal] = useState(false);
+  const authData = useSelector(getUserAuthData);
+
+  const closeAuthModal = useCallback(() => {
+    setIsAuthModal(false);
+  }, []);
 
   const openAuthModal = useCallback(() => {
     setIsAuthModal(true);
   }, []);
 
-  const closeAuthModal = useCallback(() => {
-    setIsAuthModal(false);
-  }, []);
+  const onLogout = useCallback(() => {
+    dispatch(userActions.logout());
+  }, [dispatch]);
+
+  if (authData) {
+    return (
+      <div className={classNames(styles.Navbar, className)}>
+        <div className={styles.linksList}>
+          <SharedButton
+            theme={SharedButtonTheme.CLEAR}
+            onClick={onLogout}
+          >
+            {t('Выйти')}
+          </SharedButton>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className={classNames(styles.Navbar, className)}>
